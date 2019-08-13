@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<widget xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="aui" name="csvWidget" version="0.0.5">
+<widget xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="aui" name="CSV_Widget" version="0.0.6">
     <details>
-        <title>csvWidget</title>
+        <title>CSV_Widget</title>
         <homepage>https://github.com/wirecloud-fiware/quick-start-development-tutorial</homepage>
         <authors>Anssi Uistola, Pekka Okkonen</authors>
         <contributors>nope</contributors>
@@ -15,12 +15,12 @@
     </details>
     <contents src="index.html" useplatformstyle="true"/>
 	<rendering width="240" height="50%"/>
-	
+
     <wiring>
         <inputendpoint
                 name="createCSV"
                 label="Creates csv file"
                 type="text"/>
-    </wiring>	
+    </wiring>
 
 </widget>
