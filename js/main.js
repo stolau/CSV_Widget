@@ -62,29 +62,28 @@ function main(objectArg) {
 		}
 		Creates .csv file and provides downloadable file.
 	*/
-
-	console.log(objectArg)
-
 	var maxSize = objectArg.dates.length;
-
 	var dates = objectArg.dates;
-
 	var values = objectArg.values;
-
-
-	// var names = Object.keys(objectArg["values"]);
-
 	var csvContent = "data:text/csv;charset=utf-8,";
 	csvContent += "\r\n" + "dates" + ",";
 
+	// Sets all the names to first line
 	for(var i = 0; i < values.length; i++) {
 		for (var j = 0; j < values[i].length; j++) {
 			csvContent += values[i][j].name + ",";
 		}
 	}
+	// 
 	csvContent += "\r\n";
 	for(var i = 0; i < maxSize; i++) {
-		csvContent += dates[i] + ",";
+		// Checks if dates contains illegal characters
+		/*if(dates[i].includes(",")) {
+			var nDate = dates[i].replace(/,/g, "-");
+		}*/
+		var nDate = dates[i].replace(/,/g, "-");
+		csvContent += nDate + ",";
+		// csvContent += dates[i] + ",";
 		for(var j = 0; j < values.length; j++) {
 			for (var k = 0; k < values[j].length; k++) {
 				csvContent += values[j][k].data[i] + ",";
@@ -97,5 +96,4 @@ function main(objectArg) {
 }
 
 
-// main(object);
 MashupPlatform.wiring.registerCallback('createCSV', function(content) {main(content)});
