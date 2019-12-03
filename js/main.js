@@ -62,11 +62,24 @@ function main(objectArg) {
 		}
 		Creates .csv file and provides downloadable file.
 	*/
+	console.log("Tas");
+	console.log(objectArg.values);
+	console.log(objectArg);
 	var maxSize = objectArg.dates.length;
 	var dates = objectArg.dates;
 	var values = objectArg.values;
 	var csvContent = "data:text/csv;charset=utf-8,";
 	csvContent += "\r\n" + "dates" + ",";
+	
+
+	// Creates real timestamps
+	var minDate = objectArg.values[0][0].data[0][0];
+	console.log(minDate);
+	for(var i = 0; i < values[0].length; i++) {
+		if(values[0][i].data[0][0] < minDate) {
+			minDate = values[0][i].data[0][0];
+		}
+	}
 
 	// Sets all the names to first line
 	for(var i = 0; i < values.length; i++) {
@@ -74,7 +87,7 @@ function main(objectArg) {
 			csvContent += values[i][j].name + ",";
 		}
 	}
-	// 
+	
 	csvContent += "\r\n";
 	for(var i = 0; i < maxSize; i++) {
 		// Checks if dates contains illegal characters
@@ -86,7 +99,7 @@ function main(objectArg) {
 		// csvContent += dates[i] + ",";
 		for(var j = 0; j < values.length; j++) {
 			for (var k = 0; k < values[j].length; k++) {
-				csvContent += values[j][k].data[i] + ",";
+				csvContent += values[j][k].data[i][1] + ",";
 			}
 		}
 		csvContent += "\r\n";
