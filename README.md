@@ -1,5 +1,8 @@
 This document will give instructions how to use widget.
 ---
+
+How to use
+---
 Upload csvWidget.wgt to Fiware Wirecloud resources.
 Insert widget to workspace and connect it's endpoint to desired widget.
 Widget expects to receive following object:
@@ -13,5 +16,7 @@ Widget expects to receive following object:
 	}
 	
 Each call to widget will create new downloadable .csv file.
+
+Customization
 ---
 If you want to customize the widget. Make your customizations, delete old csvWidget.wgt, select all files in the folder, compress them to .zip and change .zip to .wgt manually.
